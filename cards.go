@@ -1,5 +1,9 @@
 package main
 
+import (
+	"math/rand"
+)
+
 type Card struct {
 	value int
 	suit  string
@@ -20,4 +24,11 @@ func NewRussianDeck() *RussianDeck {
 		}
 	}
 	return deck
+}
+
+func (deck *RussianDeck) shuffle() {
+	for i := range deck.cards {
+		j := rand.Intn(i + 1)
+		deck.cards[i], deck.cards[j] = deck.cards[j], deck.cards[i]
+	}
 }
