@@ -10,8 +10,8 @@ func main() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	deck := NewRussianDeck()
 	// deck.shuffle()
-	for i := 0; i < 36; i++ {
-		card := deck.getCard()
+	for deck.cardsLeft() > 0 {
+		card := deck.dealCard()
 		fmt.Println(card.value, card.suit)
 	}
 }

@@ -33,8 +33,12 @@ func (deck *RussianDeck) shuffle() {
 	}
 }
 
-func (deck *RussianDeck) getCard() Card {
+func (deck *RussianDeck) dealCard() Card {
 	card := deck.cards[len(deck.cards)-1]
 	deck.cards = deck.cards[:len(deck.cards)-1]
 	return card
+}
+
+func (deck *RussianDeck) cardsLeft() int {
+	return len(deck.cards)
 }
