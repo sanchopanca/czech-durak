@@ -32,3 +32,9 @@ func (deck *RussianDeck) shuffle() {
 		deck.cards[i], deck.cards[j] = deck.cards[j], deck.cards[i]
 	}
 }
+
+func (deck *RussianDeck) getCard() Card {
+	card := deck.cards[len(deck.cards)-1]
+	deck.cards = deck.cards[:len(deck.cards)-1]
+	return card
+}

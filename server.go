@@ -9,8 +9,9 @@ import (
 func main() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	deck := NewRussianDeck()
-	deck.shuffle()
-	for _, card := range deck.cards {
+	// deck.shuffle()
+	for i := 0; i < 36; i++ {
+		card := deck.getCard()
 		fmt.Println(card.value, card.suit)
 	}
 }
