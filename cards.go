@@ -13,6 +13,10 @@ type RussianDeck struct {
 	cards []Card
 }
 
+type Hand struct {
+	set *CardSet
+}
+
 func NewRussianDeck() *RussianDeck {
 	suits := []string{"hearts", "diamonds", "clubs", "spades"}
 
@@ -24,6 +28,12 @@ func NewRussianDeck() *RussianDeck {
 		}
 	}
 	return deck
+}
+
+func NewHand() *Hand {
+	hand := new(Hand)
+	hand.set = NewCardSet()
+	return hand
 }
 
 func (deck *RussianDeck) shuffle() {
@@ -41,4 +51,12 @@ func (deck *RussianDeck) dealCard() Card {
 
 func (deck *RussianDeck) cardsLeft() int {
 	return len(deck.cards)
+}
+
+func (hand *Hand) addCard(card Card) {
+	hand.set.add(card)
+}
+
+func (hand *Hand) removeCard(card Card) {
+	hand.set.remove(card)
 }
