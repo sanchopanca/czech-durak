@@ -1,9 +1,11 @@
 package main
 
+// CardSet is set of unique cards
 type CardSet struct {
 	set map[Card]bool
 }
 
+// NewCardSet is constructor of CardSet
 func NewCardSet() *CardSet {
 	cardSet := new(CardSet)
 	cardSet.set = make(map[Card]bool)

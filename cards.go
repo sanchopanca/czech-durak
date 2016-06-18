@@ -4,19 +4,24 @@ import (
 	"math/rand"
 )
 
+// Card is one single card from a deck
 type Card struct {
 	value int
 	suit  string
 }
 
+// RussianDeck is crad deck with 36 cards in it
+// hearts, diamonds, clubs, and spades from 6 up to ace
 type RussianDeck struct {
 	cards []Card
 }
 
+// Hand is set of cards. All cards must be unique
 type Hand struct {
 	set *CardSet
 }
 
+// NewRussianDeck is constructor of RussianDeck
 func NewRussianDeck() *RussianDeck {
 	suits := []string{"hearts", "diamonds", "clubs", "spades"}
 
@@ -30,6 +35,7 @@ func NewRussianDeck() *RussianDeck {
 	return deck
 }
 
+// NewHand is constructor of Hand
 func NewHand() *Hand {
 	hand := new(Hand)
 	hand.set = NewCardSet()
