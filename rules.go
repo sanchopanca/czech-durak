@@ -12,3 +12,13 @@ type CzechDurakGame struct {
 	player1 *Player
 	player2 *Player
 }
+
+// NewCzechDurakGame is constructor of CzechDurakGame
+func NewCzechDurakGame(player1, player2 *Player) *CzechDurakGame {
+	game := new(CzechDurakGame)
+	game.deck = NewRussianDeck()
+	game.deck.shuffle()
+	game.player1 = player1
+	game.player2 = player2
+	return game
+}
